@@ -6,7 +6,7 @@
 /vendor/
 ###< symfony/framework-bundle ###
 
-###> symfony/webpack-encore-pack ###
+###> symfony/webpack-encore-pack ##git #
 /node_modules/
 /public/build/
 ###< symfony/webpack-encore-pack ###
