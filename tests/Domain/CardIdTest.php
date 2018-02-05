@@ -22,4 +22,33 @@ class CardIdTest extends TestCase
         $this->assertRegExp(self::UUID_REGEX, $cardId->getId(), 'not match with uuid v 4');
         $this->assertRegExp(self::UUID_REGEX, $cardId->__toString(), 'not match with uuid v 4');
     }
+
+    /**
+     * @test
+     */
+    public function when_pass_same_obj_should_return_true()
+    {
+        $cardId = new CardId();
+        $this->assertTrue($cardId->equals($cardId));
+    }
+
+    /**
+     * @test
+     */
+    public function when_compare_with_same_id_should_return_true()
+    {
+        $cardId = new CardId('card-1');
+        $anotherCardId = new CardId('card-1');
+        $this->assertTrue($cardId->equals($anotherCardId));
+    }
+
+    /**
+     * @test
+     */
+    public function when_compare_with_different_id_should_return_false()
+    {
+        $cardId = new CardId('card-1');
+        $anotherCardId = new CardId('card-3');
+        $this->assertFalse($cardId->equals($anotherCardId));
+    }
 }
